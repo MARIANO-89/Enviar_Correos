@@ -1,0 +1,30 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enviar Correos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Correos Monteverde Padel</h1>
+    <form id="form-enviar" method="POST" enctype="multipart/form-data">
+      <label for="asunto">Asunto</label>
+      <input type="text" id="asunto" name="asunto" required>
+
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" required></textarea>
+
+      <label for="csv">Seleccionar CSV</label>
+      <input type="file" id="csv" name="csv" accept=".csv" required>
+
+      <button type="submit">🚀 Enviar Correos 🚀</button>
+    </form>
+    <div class="alert" id="alert"></div>
+  </div>
+</body>
+</html>

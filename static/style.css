@@ -1,0 +1,185 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative; /* Necesario para el pseudo-elemento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(199,238,51,1) 0%, rgba(151,65,248,1) 100%);; /* Degradado invertido */
+    overflow: hidden; /* Para evitar desbordamiento en algunos dispositivos */
+}
+
+/* Fondo con desenfoque tipo espejo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Hereda el fondo degradado */
+    opacity: 0.8; /* Ajusta la opacidad */
+    backdrop-filter: blur(20px); /* Efecto de desenfoque espejado */
+    z-index: -1; /* Coloca el fondo detrás del contenido */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo semi-transparente */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2); /* Sombra más suave y moderna */
+    width: 90%;
+    max-width: 800px;
+    backdrop-filter: blur(8px); /* Efecto de profundidad más pronunciado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-10px); /* Efecto sutil al pasar el mouse */
+    box-shadow: 0px 8px 50px rgba(0, 0, 0, 0.3); /* Más profundidad al hacer hover */
+}
+
+/* Títulos y textos en color #9741F8 */
+h1, label, .alert, .asunto, .mensaje, .seleccionar-csv {
+    color: #9741F8; /* Color morado */
+}
+
+/* Estilo para el título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #9741F8; /* Título en morado */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+}
+
+/* Etiquetas */
+label {
+    font-weight: bold;
+    color: #9741F8; /* Etiquetas en morado */
+}
+
+/* Estilo de inputs y textarea */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 2px solid #D1D1D1; /* Borde gris claro */
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+}
+
+textarea {
+    height: 150px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #9741F8;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #8235d6; /* Variante más oscura */
+    transform: translateY(-3px); /* Efecto de movimiento sutil */
+}
+
+/* Estilo de los botones de selección de archivos */
+input[type="file"] {
+    background-color: #C7EE33;
+    color: black;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid #BDCD51;
+}
+
+input[type="file"]:hover {
+    background-color: #b5e01e; /* Variante más intensa */
+}
+
+/* Estilo de alertas */
+.alert {
+    margin-top: 10px;
+    color: #BDCD51;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo claro para alertas */
+}
+
+/* Clases de color */
+.bg-purple {
+    background-color: #9741F8;
+    color: white;
+}
+
+.bg-green {
+    background-color: #C7EE33;
+    color: black;
+}
+
+.bg-secondary {
+    background-color: #BDCD51;
+    color: black;
+}
+
+.bg-light {
+    background-color: #EFF0F0;
+    color: black;
+}
+
+/* Media Queries para Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        align-items: flex-start;
+    }
+    
+    .container {
+        padding: 15px;
+        width: 95%;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    input, textarea, button {
+        font-size: 0.9rem;
+    }
+    
+    button {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    input, textarea {
+        padding: 10px;
+    }
+    
+    .container {
+        margin: 10px 0;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+}
