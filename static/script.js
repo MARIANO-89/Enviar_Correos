@@ -1,4 +1,3 @@
-// script.js
 $(document).ready(function() {
     // Función para manejar el envío de correos
     $('#form-enviar').on('submit', function(event) {
@@ -17,10 +16,18 @@ $(document).ready(function() {
   
           // Resetear el formulario
           $('#form-enviar')[0].reset();
+  
+          // Eliminar datos sensibles de las variables de formulario
+          $('#correo_emisor').val('');
+          $('#contrasena').val('');
         },
         error: function(xhr, status, error) {
           // Mostrar error en caso de fallo
-          alert("❌ Hubo un error: " + xhr.responseJSON.message);
+          if (xhr.responseJSON && xhr.responseJSON.message) {
+            alert("❌ Hubo un error: " + xhr.responseJSON.message);
+          } else {
+            alert("❌ Hubo un error inesperado.");
+          }
         }
       });
     });
